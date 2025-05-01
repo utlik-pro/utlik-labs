@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: bolt-diy
+    env: docker
+    region: frankfurt
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    dockerBuildCommand: docker build --target bolt-ai-production -t bolt-diy .
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: OPEN_ROUTER_API_KEY
+        sync: false
+      - key: GOOGLE_GENERATIVE_AI_API_KEY
+        sync: false
+      - key: OLLAMA_API_BASE_URL
+        sync: false
+      - key: XAI_API_KEY
+        sync: false
+      - key: TOGETHER_API_KEY
+        sync: false
+      - key: TOGETHER_API_BASE_URL
+        sync: false
+      - key: AWS_BEDROCK_CONFIG
+        sync: false
+      - key: VITE_LOG_LEVEL
+        value: debug
+      - key: DEFAULT_NUM_CTX
+        value: "4096"
