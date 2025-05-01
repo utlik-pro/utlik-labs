@@ -6,7 +6,6 @@ services:
     plan: free
     dockerfilePath: ./Dockerfile
     dockerContext: .
-    dockerBuildCommand: docker build --target bolt-ai-production -t bolt-diy .
     envVars:
       - key: NODE_ENV
         value: production
